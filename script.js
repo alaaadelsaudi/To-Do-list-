@@ -3,18 +3,6 @@ const addTaskBtn = document.getElementById('add-btn');
 const taskList = document.getElementById('tasks');
 
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [
-  {
-    "title": "Hello",
-    "done": false
-  },
-  {
-    "title": "god",
-    "done": false
-  },
-  {
-    "title": "ok",
-    "done": false
-  },
 ];
 
 function saveTasksToLocalStorage() {
