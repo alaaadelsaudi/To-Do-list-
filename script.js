@@ -9,7 +9,8 @@ function saveTasksToLocalStorage() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Read Tasks //
+
+// // Read Tasks //
 function renderTasks() {
   taskList.innerHTML = '';
   tasks.forEach((task) => {
@@ -21,8 +22,12 @@ function renderTasks() {
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.className = 'form-check-input ';
-    checkbox.id = 'flexCheckChecked';
+    checkbox.className = 'form-check-input';
+    checkbox.checked = task.done; // checkbox
+    checkbox.addEventListener('change', () => {
+      task.done = checkbox.checked; 
+      saveTasksToLocalStorage();
+    });
 
     const taskText = document.createElement('h3');
     taskText.textContent = `${task.title}`;
@@ -109,6 +114,9 @@ function editTask(task) {
       }
     }
   }
+
+  
+;
 
 saveTasksToLocalStorage();
 
